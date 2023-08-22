@@ -36,7 +36,7 @@ public class PiCheckerController {
                 </head>
                 <body>
                 <h1 style="text-align: center" id="error"></h1>
-                <input type="number" style="display: block; margin: auto" placeholder="Start writing PI!" name = "piPart" hx-post="/" hx-target="#error" hx-swap="innerHtml" hx-trigger="keyup">
+                <input type="number" style="display: block; margin: auto" placeholder="Start writing PI!" name = "piPart" hx-post="/" hx-target="#error" hx-swap="innerHtml" hx-trigger="every 1s, keyup changed delay:200ms">
                 </body>
                 </html>""";
     }
