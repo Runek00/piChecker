@@ -45,7 +45,7 @@ public class PiCheckerController {
     @ResponseBody
     public String addToTable(@RequestParam String piPart) {
         if (pi.startsWith(piPart)) {
-            return "";
+            return "" + Math.max(0, piPart.length()-2);
         } else {
             return "ERROR";
         }
