@@ -18,25 +18,14 @@ public class PiCheckerController {
                 <!DOCTYPE html>
                 <html>
                 <head>
-                    <style>
-                    /* Chrome, Safari, Edge, Opera */
-                    input::-webkit-outer-spin-button,
-                    input::-webkit-inner-spin-button {
-                      -webkit-appearance: none;
-                      margin: 0;
-                    }
-                    
-                    /* Firefox */
-                    input[type=number] {
-                      -moz-appearance: textfield;
-                    }
-                    </style>
+                    <link rel="stylesheet" href="https://unpkg.com/missing.css@1.1.1">
                     <script src="/webjars/htmx.org/1.9.2/dist/htmx.min.js"></script>
                     <meta charset="UTF-8">
                 </head>
                 <body>
-                <h1 style="text-align: center" id="error"></h1>
-                <input type="number" style="display: block; margin: auto" placeholder="Start writing PI!" name = "piPart" hx-post="/" hx-target="#error" hx-swap="innerHtml" hx-trigger="every 1s, keyup changed delay:200ms">
+                <br><br><br><br>
+                <h1 style="text-align: center" id="error">0</h1>
+                <input type="text" style="display: block; margin: auto" placeholder="Start writing PI!" name = "piPart" hx-post="/" hx-target="#error" hx-trigger="every 1s, keyup changed delay:200ms">
                 </body>
                 </html>""";
     }
@@ -45,9 +34,9 @@ public class PiCheckerController {
     @ResponseBody
     public String addToTable(@RequestParam String piPart) {
         if (pi.startsWith(piPart)) {
-            return "" + Math.max(0, piPart.length()-2);
+            return "<h1 style=\"text-align: center\" id=\"error\">" + Math.max(0, piPart.length()-2) + "</h1>";
         } else {
-            return "ERROR";
+            return "<h1 style=\"text-align: center; color: red\" id=\"error\">ERROR</h1>";
         }
     }
 
